@@ -26,7 +26,7 @@ public class ExpensePlanItemEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expensePlanSequenceGen")
-    @GenericGenerator(name = "expensePlanSequenceGen", strategy = "com.konvergion.expenseplans.model.sequencegenerators.CommonSequenceGenerator", parameters = {
+    @GenericGenerator(name = "expensePlanSequenceGen", strategy = "com.konvergion.personalfinance.expenseplansapi.model.sequencegenerators.CommonSequenceGenerator", parameters = {
             @Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1"),
             @Parameter(name = CommonSequenceGenerator.VALUE_PREFIX_PARAM, value = "PLNITM")})
     @Column(length = 20, name = "item_id", updatable = false, insertable = false)
@@ -37,6 +37,9 @@ public class ExpensePlanItemEntity {
 
     @Column(name = "item_url", length = 4000)
     private String itemLinkUrl;
+
+    @Column(name = "item_category", length = 100)
+    private String itemCategory;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "item_priority", length = 100, nullable = false)
